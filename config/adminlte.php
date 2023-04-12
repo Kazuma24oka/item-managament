@@ -4,12 +4,12 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Title
+    | タイトル
     |--------------------------------------------------------------------------
     |
-    | Here you can change the default title of your admin panel.
+    | 管理画面のデフォルトタイトルを変更できます。
     |
-    | For detailed instructions you can look the title section here:
+    | 詳細な説明は、こちらのタイトル欄をご覧ください：
     | https://github.com/jeroennoten/Laravel-AdminLTE/wiki/Basic-Configuration
     |
     */
