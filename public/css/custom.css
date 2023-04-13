@@ -1,3 +1,40 @@
+/* 登録時の画像選択のテキスト */
 .file-label{
     color: rgba(128, 128, 128, 0.829);
+}
+
+/* 管理者一覧画面の画像表示 */
+.table-image {
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    display: inline-block;
+    border-radius: 3px;
+}
+/* 一覧画面の検索ボタンを調整 */
+.no-wrap {
+    flex-wrap: nowrap;
+}
+/* 検索フォームの高さ変更 */
+.input-group-sm > .custom-select,
+.input-group-sm > .form-control:not(textarea) {
+height: unset;
+}
+/* モーダルの画像表示 */
+.modal-image-responsive {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* 一覧画面の詳細フィールド */
+.detail-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail-text {
+    margin-right: 10px;
 }
