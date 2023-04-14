@@ -1,0 +1,58 @@
+/* 登録時の画像選択のテキスト */
+.file-label{
+    color: rgba(128, 128, 128, 0.829);
+}
+
+/* 管理者一覧画面の画像表示 */
+.table-image {
+    width: 50px;
+    height: 40px;
+    object-fit: cover;
+    display: inline-block;
+    border-radius: 3px;
+}
+/* 一覧画面の検索ボタンを調整 */
+.no-wrap {
+    flex-wrap: nowrap;
+}
+/* 検索フォームの高さ変更 */
+.input-group-sm > .custom-select,
+.input-group-sm > .form-control:not(textarea) {
+height: unset;
+}
+/* モーダルの画像表示 */
+.modal-image-responsive {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* 一覧画面の詳細フィールド */
+.detail-cell {
+    position: relative;
+    width: 40%; /* 例えば50%の幅に設定する場合 */
+}
+
+.detail-text {
+    text-align: left;
+    display: inline-block; /* テキストを1行に表示するために、インラインブロック要素にする */
+    white-space: nowrap; /* テキストを折り返さないようにする */
+    overflow: hidden; /* テキストをはみ出した分を隠す */
+    text-overflow: ellipsis; /* 隠した分を省略符号で表示する */
+}
+
+.detail-button {
+    position: absolute;
+    right: 0;
+}
+
+/* スマホ画面でのフォントサイズ調整 */
+@media (max-width: 575.98px) {
+    table.table {
+        font-size: 0.8em;
+    }
+    .detail-cell .detail-text {
+        display: none;
+    }
+}

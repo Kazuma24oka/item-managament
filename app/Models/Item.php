@@ -14,8 +14,10 @@ class Item extends Model
     protected $fillable = [
         'user_id',
         'name',
+        'image',
         'type',
         'detail',
+        
     ];
 
     /**
@@ -33,4 +35,9 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }
