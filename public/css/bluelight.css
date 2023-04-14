@@ -114,3 +114,18 @@ p.caption {
     letter-spacing: 0.2em;
     text-shadow: 0 0 20px rgba(10, 175, 230, 1), 0 0 20px rgba(10, 175, 230, 0);
 }
+
+@media (max-width: 575.98px) {
+    .bluelight {
+        width: 10%;
+        height: 10%;
+    }
+
+    .bluelight {
+        display: table;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+}

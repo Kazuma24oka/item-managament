@@ -30,6 +30,7 @@
                         </div>
                     </div>
                 <div class="card-body table-responsive p-0">
+                <div class="table-responsive">
                     <table class="table table-hover text-nowrap ">
                         <thead>
                         <tr>
@@ -99,6 +100,7 @@
                     <div style="display: flex; justify-content: center;">
                     {{ $items->links('pagination::bootstrap-4') }} <!-- ページネーションを追加 -->
                     </div>
+                </div>
                 </div>
             </div>
         </div>

@@ -47,3 +47,12 @@ height: unset;
     right: 0;
 }
 
+/* スマホ画面でのフォントサイズ調整 */
+@media (max-width: 575.98px) {
+    table.table {
+        font-size: 0.8em;
+    }
+    .detail-cell .detail-text {
+        display: none;
+    }
+}
