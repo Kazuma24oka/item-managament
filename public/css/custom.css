@@ -30,11 +30,20 @@ height: unset;
 
 /* 一覧画面の詳細フィールド */
 .detail-cell {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    position: relative;
+    width: 40%; /* 例えば50%の幅に設定する場合 */
 }
 
 .detail-text {
-    margin-right: 10px;
+    text-align: left;
+    display: inline-block; /* テキストを1行に表示するために、インラインブロック要素にする */
+    white-space: nowrap; /* テキストを折り返さないようにする */
+    overflow: hidden; /* テキストをはみ出した分を隠す */
+    text-overflow: ellipsis; /* 隠した分を省略符号で表示する */
 }
+
+.detail-button {
+    position: absolute;
+    right: 0;
+}
+

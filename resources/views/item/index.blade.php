@@ -28,7 +28,7 @@
                         </div>
                     </div>
                 <div class="card-body table-responsive p-0">
-                    <table class="table table-hover text-nowrap">
+                    <table class="table table-hover text-nowrap ">
                         <thead>
                         <tr>
                             <th>
@@ -44,7 +44,7 @@
                                     <i class="fas fa-sort-{{ request()->query('order') == 'asc' ? 'up' : 'down' }}"></i>
                                 @endif
                             <th>
-                                <a class="text-secondary" href="{{ route('items.index', array_merge(request()->query(), ['sort' => 'type', 'order' => (request()->query('sort') == 'type' && request()->query('order') == 'asc') ? 'desc' : 'asc'])) }}">種別</a>
+                            <a class="text-secondary" href="{{ route('items.index', array_merge(request()->query(), ['sort' => 'type', 'order' => (request()->query('sort') == 'type' && request()->query('order') == 'asc') ? 'desc' : 'asc'])) }}">種別</a>
                                 @if(request()->query('sort') == 'type')
                                     <i class="fas fa-sort-{{ request()->query('order') == 'asc' ? 'up' : 'down' }}"></i>
                                 @endif
@@ -56,17 +56,17 @@
                         <tbody>
                             @foreach ($items as $item)
                                 <tr>
-                                    <td style="width: 50px;">{{ $item->id }}</td>
+                                    <td style="width: 50px; text-align: left; vertical-align: middle;">{{ $item->id }}</td>
                                     <td><img src="{{ asset($item->image) }}" alt="Item Image" class="table-image"></td>
-                                    <td>{{ $item->name }}</td>
-                                    <td>{{ $item->type }}</td>
+                                    <td style="text-align: left; vertical-align: middle;">{{ $item->name }}</td>
+                                    <td style="text-align: left; vertical-align: middle;">{{ $item->type }}</td>
                                     <td class="detail-cell">
-                                        <span class="detail-text">{{ $item->detail }}</span>
-                                        <a class="btn btn-secondary small-button" href="#" data-toggle="modal" data-target="#modal-{{ $item->id }}">詳細</a>
+                                        <span class="detail-text">{{ Str::limit($item->detail, 66, '...') }}</span>
+                                        <a class="btn btn-secondary small-button detail-button" href="#" data-toggle="modal" data-target="#modal-{{ $item->id }}">詳細</a>
                                     </td>
-                                    <td>
+                                    <td style="text-align: left; vertical-align: middle; width: 30%;">
                                         <!-- 編集画面へ遷移 -->
-                                        <a href="{{ route('items.edit', $item->id) }}" class=" btn btn-primary small-button">編集</a>
+                                        <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary small-button">編集</a>
                                         <!-- 削除機能 -->
                                         <form action="{{ route('items.destroy', $item->id) }}" method="POST" style="display:inline;">
                                             @csrf
@@ -80,6 +80,9 @@
                             @endforeach
                         </tbody>
                     </table>
+                    <div style="display: flex; justify-content: center;">
+                    {{ $items->links('pagination::bootstrap-4') }} <!-- ページネーションを追加 -->
+                    </div>
                 </div>
             </div>
         </div>
@@ -93,4 +96,3 @@
 @section('js')
     <script src="{{ asset('js/custom.js') }}"></script>
 @stop
-

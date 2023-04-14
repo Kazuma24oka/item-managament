@@ -26,6 +26,7 @@ class ItemController extends Controller
      */
     public function index(Request $request)
     {
+        // 検索機能
         $search = $request->input('search');
         $keywords = [];
         if (!empty($search)) {
@@ -41,12 +42,13 @@ class ItemController extends Controller
                     ->orWhere('items.detail', 'like', '%' . $keyword . '%');
             });
         }
-    
+        // ソート機能
         $sort = $request->input('sort', 'id');
         $order = $request->input('order', 'asc');
         $query->orderBy($sort, $order);
     
-        $items = $query->get();
+        // ページネーションを適用（ページあたりのアイテム数を10に設定）
+        $items = $query->paginate(15);
     
         return view('item.index', compact('items', 'search', 'sort', 'order'));
     }
@@ -70,7 +72,7 @@ class ItemController extends Controller
                 $publicPath = Storage::url($path);
             } else {
                 // 画像が存在しない場合、デフォルトの画像パスを保存
-                $publicPath = '/images/No_image.png';  // デフォルトの画像パスを指定
+                $publicPath = '/storage/images/No_image.png';
             }
     
             // 商品登録
