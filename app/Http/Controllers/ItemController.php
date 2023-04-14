@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
 
-use function PHPSTORM_META\type;
+
 
 class ItemController extends Controller
 {
@@ -132,4 +132,5 @@ class ItemController extends Controller
         $item->delete();
             return redirect()->route('items.index')->with('success', 'Item deleted successfully.');
     }
+    
 }

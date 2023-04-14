@@ -1,20 +1,22 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'ホーム画面')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h5>ようこそ{{ Auth::user()->name }}さん、こちらはホーム画面です。</h5>        
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div class="bluelight">
+        <a href="{{ url('items') }}">Product List</a>
+    </div>
 @stop
 
 @section('css')
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    <link rel="stylesheet" href="{{ asset('css/bluelight.css') }}">
 @stop
+
 
 @section('js')
     <script> console.log('Hi!'); </script>
 @stop
-

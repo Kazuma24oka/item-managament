@@ -30,3 +30,6 @@ function previewImage() {
 document.querySelector('form').addEventListener('submit', function() {
     document.getElementById('submit-button').disabled = true;
 });
+
+
+// ホーム画面のデザイン

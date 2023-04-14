@@ -35,4 +35,9 @@ class Item extends Model
      */
     protected $casts = [
     ];
+
+    public function favorites()
+    {
+        return $this->hasMany(Favorite::class);
+    }
 }

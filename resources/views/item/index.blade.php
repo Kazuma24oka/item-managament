@@ -14,7 +14,9 @@
                     <div class="row">
                         <div class="col-md-4 d-flex align-items-center">
                             <!-- 商品登録ボタン -->
+                            @can('manage-items')
                             <a href="{{ url('items/add') }}" class="btn btn-default">商品登録</a>
+                            @endcan
                         </div>
                         <div class="col-md-4">
                             <!-- 検索フォーム -->
@@ -23,8 +25,8 @@
                                 <button class="btn btn-default" type="submit"><i class="fas fa-search"></i></button>
                             </form>
                         </div>
-                        <div class="col-md-2 ml-auto">
-                            <a href="">ユーザー画面</a>
+                        <div class="col-md-4 d-flex justify-content-end align-items-center">
+                        <a href="{{ route('favorites.index') }}" class="btn btn-default">お気に入りのみ表示</a>
                         </div>
                     </div>
                 <div class="card-body table-responsive p-0">
@@ -64,7 +66,8 @@
                                         <span class="detail-text">{{ Str::limit($item->detail, 66, '...') }}</span>
                                         <a class="btn btn-secondary small-button detail-button" href="#" data-toggle="modal" data-target="#modal-{{ $item->id }}">詳細</a>
                                     </td>
-                                    <td style="text-align: left; vertical-align: middle; width: 30%;">
+                                    <td style="display: flex; align-items: center;">
+                                        @can('manage-items')
                                         <!-- 編集画面へ遷移 -->
                                         <a href="{{ route('items.edit', $item->id) }}" class="btn btn-primary small-button">編集</a>
                                         <!-- 削除機能 -->
@@ -73,6 +76,19 @@
                                             @method('DELETE')
                                             <button type="submit" onclick="return confirm('本当に削除しますか？')" class="btn btn-danger small-button">削除</button>
                                         </form>
+                                        @endcan
+                                        @if (Auth::user()->favorites->where('item_id', $item->id)->isEmpty())
+                                            <form action="{{ route('favorite.store', $item->id) }}" method="POST">
+                                                @csrf
+                                                <button type="submit" class="btn btn-outline-success">☆</button>
+                                            </form>
+                                        @else
+                                            <form action="{{ route('favorite.destroy', $item->id) }}" method="POST">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-success">★</button>
+                                            </form>
+                                        @endif
                                     </td>
                                 </tr>
                                     <!-- Include the item detail modal -->
