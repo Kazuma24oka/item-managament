@@ -98,7 +98,7 @@
                         </tbody>
                     </table>
                     <div style="display: flex; justify-content: center;">
-                    {{ $items->links('pagination::bootstrap-4') }} <!-- ページネーションを追加 -->
+                        {{ $items->appends(request()->query())->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
                 </div>

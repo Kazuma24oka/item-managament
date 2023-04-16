@@ -48,7 +48,7 @@ class ItemController extends Controller
         $order = $request->input('order', 'asc');
         $query->orderBy($sort, $order);
     
-        // ページネーションを適用（ページあたりのアイテム数を10に設定）
+        // ページネーションを適用（ページあたりのアイテム数を15に設定）
         $items = $query->paginate(15);
     
         return view('item.index', compact('items', 'search', 'sort', 'order'));
