@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "894a32ea0d47228627d0be7d770d07a2",
+    "content-hash": "13e9e3f4482b2d120b45d59034117728",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -191,26 +191,25 @@
         },
         {
             "name": "brick/math",
-            "version": "0.10.2",
+            "version": "0.11.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/brick/math.git",
-                "reference": "459f2781e1a08d52ee56b0b1444086e038561e3f"
+                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/brick/math/zipball/459f2781e1a08d52ee56b0b1444086e038561e3f",
-                "reference": "459f2781e1a08d52ee56b0b1444086e038561e3f",
+                "url": "https://api.github.com/repos/brick/math/zipball/0ad82ce168c82ba30d1c01ec86116ab52f589478",
+                "reference": "0ad82ce168c82ba30d1c01ec86116ab52f589478",
                 "shasum": ""
             },
             "require": {
-                "ext-json": "*",
-                "php": "^7.4 || ^8.0"
+                "php": "^8.0"
             },
             "require-dev": {
                 "php-coveralls/php-coveralls": "^2.2",
                 "phpunit/phpunit": "^9.0",
-                "vimeo/psalm": "4.25.0"
+                "vimeo/psalm": "5.0.0"
             },
             "type": "library",
             "autoload": {
@@ -235,7 +234,7 @@
             ],
             "support": {
                 "issues": "https://github.com/brick/math/issues",
-                "source": "https://github.com/brick/math/tree/0.10.2"
+                "source": "https://github.com/brick/math/tree/0.11.0"
             },
             "funding": [
                 {
@@ -243,32 +242,32 @@
                     "type": "github"
                 }
             ],
-            "time": "2022-08-10T22:54:19+00:00"
+            "time": "2023-01-15T23:15:59+00:00"
         },
         {
             "name": "cloudinary-labs/cloudinary-laravel",
-            "version": "2.0.3",
+            "version": "1.0.4",
             "source": {
                 "type": "git",
-                "url": "https://github.com/cloudinary-devs/cloudinary-laravel.git",
-                "reference": "f331b770b277a75dbde3c61bf1e50096b3e68104"
+                "url": "https://github.com/cloudinary-labs/cloudinary-laravel.git",
+                "reference": "7543449243848eb936e4c492b82ec64512e67da0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cloudinary-devs/cloudinary-laravel/zipball/f331b770b277a75dbde3c61bf1e50096b3e68104",
-                "reference": "f331b770b277a75dbde3c61bf1e50096b3e68104",
+                "url": "https://api.github.com/repos/cloudinary-labs/cloudinary-laravel/zipball/7543449243848eb936e4c492b82ec64512e67da0",
+                "reference": "7543449243848eb936e4c492b82ec64512e67da0",
                 "shasum": ""
             },
             "require": {
                 "cloudinary/cloudinary_php": "^2.0",
                 "ext-json": "*",
-                "illuminate/support": "~6|~7|~8|^9.0|^10.0",
-                "php": "^8.0.2"
+                "illuminate/support": "~6|~7|~8",
+                "php": ">=7.2"
             },
             "require-dev": {
                 "mockery/mockery": "^1.1",
-                "orchestra/testbench": "~4|~5|~6|^7.0",
-                "phpunit/phpunit": "^8.0|^9.5.10",
+                "orchestra/testbench": "~4|~5|~6",
+                "phpunit/phpunit": "^8.0",
                 "sempro/phpunit-pretty-print": "^1.0"
             },
             "type": "library",
@@ -312,10 +311,10 @@
                 "laravel"
             ],
             "support": {
-                "issues": "https://github.com/cloudinary-devs/cloudinary-laravel/issues",
-                "source": "https://github.com/cloudinary-devs/cloudinary-laravel/tree/2.0.3"
+                "issues": "https://github.com/cloudinary-labs/cloudinary-laravel/issues",
+                "source": "https://github.com/cloudinary-labs/cloudinary-laravel/tree/1.0.4"
             },
-            "time": "2023-03-01T15:07:23+00:00"
+            "time": "2021-02-17T04:23:45+00:00"
         },
         {
             "name": "cloudinary/cloudinary_php",
@@ -3291,20 +3290,20 @@
         },
         {
             "name": "ramsey/uuid",
-            "version": "4.7.3",
+            "version": "4.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ramsey/uuid.git",
-                "reference": "433b2014e3979047db08a17a205f410ba3869cf2"
+                "reference": "60a4c63ab724854332900504274f6150ff26d286"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ramsey/uuid/zipball/433b2014e3979047db08a17a205f410ba3869cf2",
-                "reference": "433b2014e3979047db08a17a205f410ba3869cf2",
+                "url": "https://api.github.com/repos/ramsey/uuid/zipball/60a4c63ab724854332900504274f6150ff26d286",
+                "reference": "60a4c63ab724854332900504274f6150ff26d286",
                 "shasum": ""
             },
             "require": {
-                "brick/math": "^0.8.8 || ^0.9 || ^0.10",
+                "brick/math": "^0.8.8 || ^0.9 || ^0.10 || ^0.11",
                 "ext-json": "*",
                 "php": "^8.0",
                 "ramsey/collection": "^1.2 || ^2.0"
@@ -3367,7 +3366,7 @@
             ],
             "support": {
                 "issues": "https://github.com/ramsey/uuid/issues",
-                "source": "https://github.com/ramsey/uuid/tree/4.7.3"
+                "source": "https://github.com/ramsey/uuid/tree/4.7.4"
             },
             "funding": [
                 {
@@ -3379,7 +3378,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-01-12T18:13:24+00:00"
+            "time": "2023-04-15T23:01:58+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
