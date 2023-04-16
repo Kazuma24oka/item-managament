@@ -61,7 +61,7 @@
                                 <tr>
                                     <td style="width: 50px; text-align: left; vertical-align: middle;">{{ $item->id }}</td>
                                     <td><img src="{{ asset($item->image) }}" alt="Item Image" class="table-image"></td>
-                                    <td style="text-align: left; vertical-align: middle;">{{ $item->name }}</td>
+                                    <td style="text-align: left; vertical-align: middle;">{{ Str::limit($item->name, 25, '...') }}</td>
                                     <td style="text-align: left; vertical-align: middle;">{{ $item->type }}</td>
                                     <td class="detail-cell">
                                         <span class="detail-text">{{ Str::limit($item->detail, 66, '...') }}</span>
@@ -98,7 +98,7 @@
                         </tbody>
                     </table>
                     <div style="display: flex; justify-content: center;">
-                    {{ $items->links('pagination::bootstrap-4') }} <!-- ページネーションを追加 -->
+                        {{ $items->appends(request()->query())->links('pagination::bootstrap-4') }}
                     </div>
                 </div>
                 </div>

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Item;
 use Illuminate\Support\Facades\Storage;
+use CloudinaryLabs\CloudinaryLaravel\Facades\Cloudinary;
 
 
 
@@ -47,7 +48,7 @@ class ItemController extends Controller
         $order = $request->input('order', 'asc');
         $query->orderBy($sort, $order);
     
-        // ページネーションを適用（ページあたりのアイテム数を10に設定）
+        // ページネーションを適用（ページあたりのアイテム数を15に設定）
         $items = $query->paginate(15);
     
         return view('item.index', compact('items', 'search', 'sort', 'order'));
@@ -63,18 +64,26 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'nullable',
+                'detail' => 'nullable|max:500',
+                'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
-    
+
             // 画像ファイルが存在するかチェック
             if ($request->hasFile('file')) {
-                // ファイルアップロード
-                $path = $request->file('file')->store('images', 'public');
-                $publicPath = Storage::url($path);
+                // Cloudinaryへのアップロード
+                $image = $request->file('file');
+                $uploaded = Cloudinary::upload($image->getRealPath(), [
+                    'folder' => 'your_folder_name',
+                ])->getSecurePath();
+
+                // 画像のURLを保存
+                $publicPath = $uploaded;
             } else {
                 // 画像が存在しない場合、デフォルトの画像パスを保存
-                $publicPath = '/storage/images/No_image.png';
+                $publicPath = 'https://res.cloudinary.com/dkrwjahga/image/upload/v1681621150/No_image_tftpwv.png';
             }
-    
+
             // 商品登録
             Item::create([
                 'user_id' => Auth::user()->id,
@@ -83,10 +92,10 @@ class ItemController extends Controller
                 'type' => $request->type,
                 'detail' => $request->detail,
             ]);
-    
+
             return redirect('/items');
         }
-    
+
         return view('item.add');
     }
 
@@ -107,13 +116,19 @@ class ItemController extends Controller
         $this->validate($request, [
             'name' => 'required|max:100',
             'file' => 'nullable|image',
-            'type' => 'nullable|integer|min:1|max:6', // ここを変更
+            'type' => 'nullable|integer|min:1|max:6',
             'detail' => 'nullable|max:500',
         ]);
 
         if ($request->file('file')) {
-            $path = $request->file('file')->store('public/images');
-            $publicPath = Storage::url($path);
+            // Cloudinaryへのアップロード
+            $image = $request->file('file');
+            $uploaded = Cloudinary::upload($image->getRealPath(), [
+                'folder' => 'your_folder_name',
+            ])->getSecurePath();
+
+            // 画像のURLを保存
+            $publicPath = $uploaded;
             $item->image = $publicPath;
         }
 
