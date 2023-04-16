@@ -64,6 +64,9 @@ class ItemController extends Controller
             // バリデーション
             $this->validate($request, [
                 'name' => 'required|max:100',
+                'type' => 'nullable',
+                'detail' => 'nullable|max:500',
+                'file' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
             ]);
 
             // 画像ファイルが存在するかチェック
