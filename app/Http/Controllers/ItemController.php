@@ -78,7 +78,7 @@ class ItemController extends Controller
                 $publicPath = $uploaded;
             } else {
                 // 画像が存在しない場合、デフォルトの画像パスを保存
-                $publicPath = '/storage/images/No_image.png';
+                $publicPath = 'https://res.cloudinary.com/dkrwjahga/image/upload/v1681621150/No_image_tftpwv.png';
             }
 
             // 商品登録
