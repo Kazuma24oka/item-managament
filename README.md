@@ -1,35 +1,48 @@
-## 商品管理システム
+# 商品管理システム
+## 概要 
+このシステムでは、店舗で扱う商品の在庫管理を行うことができます。
+商品の一覧表示、登録、編集、削除がメインの機能として利用できます。
+補助的な機能として検索、ソート、お気に入り、そしてページネーション機能もあります。
+また、管理者と一般ユーザーで権限が異なります。
 
-### 環境構築手順
+## 機能説明
+- 商品の一覧表示：商品情報(ID,画像、名前、種別、詳細)の表示
+- 商品登録：商品情報の登録
+- 商品編集：商品情報を編集
+- 商品削除：商品情報の削除
+- 商品の検索：商品情報の内容で検索可能、キーワード間に半角スペースをいれると複数検索
+- ソート：ID、商品名、種別での昇降順ソートが可能
+- ページネーション：商品情報が15件以上になると次ページに表示される
+- お気に入り登録：選んだ商品をお気に入りリストに登録、お気に入り商品のみ表示することが可能
 
-* Gitクローン
-* .env.example をコピーして .env を作成
-* MySQLかPostgreSQLのデータベース作成（名前：item_management）  
-  ローカルでMAMPを使用しているのであれば、MySQL推奨
-* .env にデータベース接続情報追加
+## 画面設計
+- 会員登録画面
+- ログイン画面
+- ホーム画面
+- 商品一覧画面
+- 商品登録画面
+- 商品編集画面
+
+## 開発環境
 ```
-例）
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=item_management
-DB_USERNAME=root
-DB_PASSWORD=root
+PHP 8.25
+MySQL  5.6.50-log
+Laravel 8.83.27
 ```
-* APP_KEY生成
+
+## 設計書
+[設計書ページへ](https://drive.google.com/drive/folders/1cEUkygvs3Lrt7fnRSBD7-C4hsntwJ9W5?usp=share_link)
+
+## システム閲覧
+[アプリケーションページへ](https://tech-item-management.herokuapp.com)
+
+### テストアカウント情報
 ```
-$ php artisan key:generate
-```
-* Composerインストール
-```
-$ composer install
-```
-* フロント環境構築
-```
-$ npm install
-$ npm run dev
-```
-* マイグレーション
-```
-$ php artisan migrate
+管理者ユーザー(admin)
+メールアドレス：admin@admin
+パスワード：12345678
+
+一般ユーザー(general)
+メールアドレス：general@general
+パスワード：11111111
 ```
